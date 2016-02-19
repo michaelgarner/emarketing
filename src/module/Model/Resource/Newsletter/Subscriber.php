@@ -85,7 +85,7 @@ class Mzax_Emarketing_Model_Resource_Newsletter_Subscriber
     public function loadByCustomer(Mage_Customer_Model_Customer $customer, $storeId = null)
     {
         if(!$this->allowMultiStoreSupport() && is_null($storeId)) {
-            return parent::loadByEmail($subscriberEmail);
+            return parent::loadByEmail($customer->getEmail());
         }
 
         $select = $this->_read->select()
